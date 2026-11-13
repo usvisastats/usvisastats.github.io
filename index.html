@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>美签 F1/J1 Case 汇总</title>
+<meta name="description" content="2026 年 8 月及之后面签、或此前面签但 8 月仍未下签的美签 F1/J1 匿名 case 调研汇总：按面签地点、月份、签证类型、学校、研究方向查看通过、check 与拒签情况。Chinese / English.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232a78d6'/><rect x='7' y='17' width='4' height='8' rx='1' fill='white'/><rect x='14' y='11' width='4' height='14' rx='1' fill='white'/><rect x='21' y='7' width='4' height='18' rx='1' fill='white'/></svg>">
+<link rel="stylesheet" href="assets/style.css?v=71830a6c">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <div class="title-row">
+      <h1 id="title">美签 F1/J1 Case 汇总</h1>
+      <button type="button" id="lang" class="lang-btn" lang="en" aria-label="Switch to English">EN</button>
+    </div>
+    <p class="lede" data-i18n="lede">汇总 F1/J1 美签匿名问卷结果：2026 年 8 月及之后面签的，以及更早面签、但到 8 月还没有下签（比如一直在 check）的 case 都包括在内，帮助大家了解各学校、各方向的情况。</p>
+    <p class="disclaimer" data-i18n-html="disclaimer"><strong>注意：</strong>数据是自愿填写，未经核实，不构成法律意见，而且可能有偏差，仅作为参考。</p>
+    <p class="meta"><strong data-i18n="schedule">不定期更新。</strong><span id="meta">加载中… / Loading…</span></p>
+    <p class="actions" id="actions"></p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="filters" data-i18n-aria="filters" aria-label="筛选">
+    <div class="filter-row">
+      <label><span data-i18n="f_visa_type">签证类型</span><select data-filter="visa_type"></select></label>
+      <label><span data-i18n="f_result">签证状态</span><select data-filter="result"></select></label>
+      <label><span data-i18n="f_location">面签地点</span><select data-filter="location"></select></label>
+      <label><span data-i18n="f_interview_month">面签月份</span><select data-filter="interview_month"></select></label>
+      <label><span data-i18n="f_purpose">赴美目的</span><select data-filter="purpose"></select></label>
+      <label><span data-i18n="f_field_us">赴美方向</span><select data-filter="field_us"></select></label>
+    </div>
+    <div class="filter-row">
+      <label class="grow"><span data-i18n="f_school">学校</span><input type="search" id="school-q" data-i18n-ph="schoolPh" placeholder="本/硕/博任一学校，如：上海交通" autocomplete="off"></label>
+      <button type="button" id="reset" data-i18n="reset">清除筛选</button>
+    </div>
+  </section>
+  <p class="count" id="count" aria-live="polite"></p>
+
+  <section class="tiles" id="tiles" data-i18n-aria="overview" aria-label="总览"></section>
+
+  <section class="legend" id="legend" data-i18n-aria="legend" aria-label="图例"></section>
+
+  <section class="grid" id="breakdowns"></section>
+
+  <section class="card" id="check-card">
+    <h2 data-i18n="checkTitle">Check 天数</h2>
+    <p class="sub" data-i18n="checkSub">每个点是一个 case，从面签当天算起；仍在 check 的算到填写当天。</p>
+    <div id="check-chart"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <h2 data-i18n="schoolsTitle">按学校</h2>
+      <div class="seg-toggle" role="group" data-i18n-aria="levels" aria-label="学校层级" id="level-toggle">
+        <button type="button" data-level="any" aria-pressed="true" data-i18n="lvAny">任一</button>
+        <button type="button" data-level="undergrad" aria-pressed="false" data-i18n="lvUndergrad">本科</button>
+        <button type="button" data-level="master" aria-pressed="false" data-i18n="lvMaster">硕士</button>
+        <button type="button" data-level="phd" aria-pressed="false" data-i18n="lvPhd">博士</button>
+      </div>
+    </div>
+    <p class="sub" data-i18n-html="schoolsSub"></p>
+    <div class="table-wrap"><table class="schools" id="schools"></table></div>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="casesTitle">全部 case</h2>
+    <p class="sub" data-i18n="casesSub">按最近提交时间排序。自由填写的内容经过人工脱敏后才公开。</p>
+    <div id="cases" class="cases"></div>
+  </section>
+</main>
+
+<div class="tip" id="tip" role="tooltip" hidden></div>
+<script src="assets/app.js?v=0afab847"></script>
+</body>
+</html>
